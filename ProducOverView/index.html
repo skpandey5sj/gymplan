@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Plans</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+       .hero {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        .hero video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+            padding: 20px;
+            border: 2px solid #007bff;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #eef2ff, #dbeafe);
+        }
+        .contact-form {
+            background: linear-gradient(135deg, #ffffff, #f0f0f0);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border: 2px solid #007bff;
+        }
+       
+        .btn-primary {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            border: none;
+            font-weight: bold;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #0056b3, #004494);
+        }
+        @media (max-width: 764px) {
+            .card {
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+     <!-- Hero Section -->
+     <header class="hero fade-in">
+        <video autoplay muted loop>
+            <source src="./assets/heroSectionVideo.mp4" type="video/mp4">
+        </video>
+        <div>
+            <h1 class="fade-in">Introducing ProductX</h1>
+            <p class="fade-in">Your ultimate solution for efficiency</p>
+            <a href="#features" class="btn btn-primary fade-in">Learn More</a>
+        </div>
+    </header>
+
+ 
+    
+    <!-- Feature Highlights -->
+    <section id="features" class="container my-5 fade-in">
+        <h2 class="text-center fade-in mb-3">Key Features</h2>
+        <div class="row text-center">
+            <div class="col-md-4 scale-in delay-1">
+                <h4>Fast Performance</h4>
+                <p>Experience seamless speed with our product.</p>
+            </div>
+            <div class="col-md-4 scale-in delay-2">
+                <h4>Secure & Reliable</h4>
+                <p>Top-notch security features built-in.</p>
+            </div>
+            <div class="col-md-4 scale-in delay-3">
+                <h4>24/7 Support</h4>
+                <p>We are here for you anytime.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Pricing Cards -->
+    <section class="container my-5 fade-in">
+        <h2 class="text-center fade-in mb-3">Pricing Plans</h2>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <div class="card scale-in delay-1">
+                    <div class="card-body">
+                        <h3>Basic</h3>
+                        <p>$9.99/month</p>
+                        <p>✔ Essential Features</p>
+                        <p>✔ Email Support</p>
+                        <p>✔ Limited Access</p>
+                        <button class="btn btn-primary">Choose Plan</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card scale-in delay-2">
+                    <div class="card-body">
+                        <h3>Pro</h3>
+                        <p>$19.99/month</p>
+                        <p>✔ All Basic Features</p>
+                        <p>✔ Priority Support</p>
+                        <p>✔ Advanced Analytics</p>
+                        <button class="btn btn-primary">Choose Plan</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card scale-in delay-3">
+                    <div class="card-body">
+                        <h3>Enterprise</h3>
+                        <p>$49.99/month</p>
+                        <p>✔ All Pro Features</p>
+                        <p>✔ Dedicated Account Manager</p>
+                        <p>✔ Unlimited Access</p>
+                        <button class="btn btn-primary">Choose Plan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Form -->
+    <section class="container my-5 fade-in">
+        <h2 class="text-center fade-in mb-3">Get in Touch</h2>
+        <form id="contactForm" class="contact-form mx-auto" style="max-width: 500px;">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" required>
+                <small id="emailError" class="text-danger" style="display: none;">Please enter a valid email.</small>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </section>
+    
+
+
+
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const fadeElements = document.querySelectorAll(".fade-in, .scale-in");
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add("visible");
+                        }, index * 200);
+                    } else {
+                        entry.target.classList.remove("visible");
+                    }
+                });
+            }, { threshold: 0.2 });
+            fadeElements.forEach(element => observer.observe(element));
+        });
+    </script>
+
+</body>
+</html>
